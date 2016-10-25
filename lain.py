@@ -247,24 +247,25 @@ if any(user in s for s in username):
                 elif any(network in s for s in school):
                     print("Welcome to the Ouka Private Girls Academy network")
                     print("This site is still under development")
+                    input("Press Enter to continue...")
                 #other
                 elif any(network in s for s in other):
                     site = int(random.randrange(1, 5, 1))
                     if site == 1:
-                        print("dota putin fóóbar weird anime putin Gene høi hallo fullfill the prophesy")
+                        print("Random Website: dota putin fóóbar weird anime putin Gene høi hallo fullfill the prophesy")
                     elif site == 2:
-                        print("Post-Apocalyptic is a member-driven directory of websites related to the post-apocalyptic genre!")
+                        print("Random Website: Post-Apocalyptic is a member-driven directory of websites related to the post-apocalyptic genre!")
                     elif site == 3:
-                        print("3")
+                        print("Random Website: Little dogs like you’ve never even seen them before.")
                     elif site == 4:
-                        print("4")
+                        print("Random Website: Wave cheerio to the blues, any hour of any day.")
                     elif site == 5:
-                        print("5")
+                        print("Random Website: Weirdness to infinity and back.")
                     functionapp()
                 #darksites
                 elif any(network in s for s in darkweb):
                     drugs = ["drugs","Drugs"]
-                    farright = ["Far Right Ideology","Far-Right Ideology","fri","far","far right","Far Right","far right ideology","ideology","Ideology","/pol/"]
+                    farright = ["Far Right Ideology","Far-Right Ideology","fri","far","far right","farright","FarRight","Far Right","far right ideology","ideology","Ideology","/pol/"]
                     porn = ["Illegal Porn","illegal porn","porn","illegal","CP","cp","cheese pizza"]
                     if lvldarkweb == 0:
                         print("[The 'Top Of Relay' network obfuscation project is under development by the Computer Science department of Tokyo U!\nBe sure to check back regularly for updates!]")
@@ -275,21 +276,31 @@ if any(user in s for s in username):
                         darksite = input("Please select a site: \n> ")
                         if any(darksite in s for s in drugs):
                             print("Welcome to the Grand Trunk Road!\nThe site where you can buy anything!")
+                            input("Press Enter to return...")
                         elif any(darksite in s for s in farright):
                             print("You're on '/Politically Observant Losers/', the last bastion of free speech on the internet.")
                             toppost = int(random.randrange(1, 5, 1))
                             if toppost == 1:
-                                print("What are some small redpills to casually drop on the normies?")
+                                print("Top Post: What are some small redpills to casually drop on the normies?")
                             if toppost == 2:
-                                print("I can't wait to see the mass suicide of libtards. It's going to be beautiful.")
+                                print("Top Post: I can't wait to see the mass suicide of libtards. It's going to be beautiful.")
                             if toppost == 3:
-                                print("Do vaccines cause autism?")
+                                print("Top Post: Do vaccines cause autism?")
                             if toppost == 4:
-                                print("What are some of your degenerate habits, how are you planning to stop them, or what have you stopped?")
+                                print("Top Post: What are some of your degenerate habits, how are you planning to stop them, or what have you stopped?")
                             if toppost == 5:
-                                print("People always say that Women crash their cars because they are horrible drivers, yet studies show that Women are better drivers than Men")
+                                print("Top Post: People always say that Women crash their cars because they are horrible drivers, yet studies show that Women are better drivers than Men")
+                            input("Press Enter to return...")
                         elif any(darksite in s for s in porn):
                             print("Chuckie's Cheese Pizza, delivered hot and fresh!")
+                            pedologin = input("Username:\n> ")
+                            if pedologin == "zippydoodah":
+                                pedopassword = input("Password:\n> ")
+                                if pedopassword == "puddinpops":
+                                    print("מֹלֶךְ")
+                            input("Press Enter to return...")
+                        else:
+                            print("Site not found!")
             #post event remoting
             elif lvlremote == 1:
                 if any(network in s for s in cyberiachat):
