@@ -137,18 +137,21 @@ if any(user in s for s in username):
             school = ["school","School"]
             other = ["random","Random"]
             darkweb = ["darkweb","darknet","deepweb","Deepweb","Darknet","Darkweb"]
-            network = input("Which network would you like to connect to?: [CyberiaChat], [School], [Random], [Darknet], or [Exit] \n> ")
+            if lvldarkweb == 0:
+                network = input("Which network would you like to connect to?: [CyberiaChat], [School], [Random], or [Exit] \n> ")
+            else:
+                network = input("Which network would you like to connect to?: [CyberiaChat], [School], [Random], [Darknet], or [Exit] \n> ")
             #function
             if lvlremote == 0:
                 #cyberiachat
                 if any(network in s for s in cyberiachat):
-                    def cyberiachat():
-                        print("「Ｗｉｒｅｄ Ｓｏｕｎｄ Ｆｏｒ Ｗｉｒｅｄ Ｐｅｏｐｌｅ」")
-                        print("\n")
-                        join = input("W o u l d  y o u  l i k e  t o  l o o k  i n s i d e ? (Y/N) \n> ")
-                        if join == "y" or "Y":
+                    print("「Ｗｉｒｅｄ Ｓｏｕｎｄ Ｆｏｒ Ｗｉｒｅｄ Ｐｅｏｐｌｅ」")
+                    print("\n")
+                    join = input("W o u l d  y o u  l i k e  t o  l o o k  i n s i d e ? (Y/N) \n> ")
+                    if join == "y" or "Y":
+                        def cyberiachat():
                             print("\nForums:\n\nMusic\nCyber\nRumors\n")
-                            forum = input("Please select a forum \n> ")
+                            forum = input("Please select a forum or [exit]\n> ")
                             #definitions
                             music = ["Music","music","mus"]
                             cyber = ["Cyber","cyber","tech"]
@@ -237,8 +240,8 @@ if any(user in s for s in username):
                                     cyberiachat()
                                 elif any(forum in s for s in exit):
                                     functionapp()
-                        else:
-                            remoteapp()
+                    else:
+                        remoteapp()
                     cyberiachat()
                 #school
                 elif any(network in s for s in school):
@@ -265,17 +268,27 @@ if any(user in s for s in username):
                     porn = ["Illegal Porn","illegal porn","porn","illegal","CP","cp","cheese pizza"]
                     if lvldarkweb == 0:
                         print("[The 'Top Of Relay' network obfuscation project is under development by the Computer Science department of Tokyo U!\nBe sure to check back regularly for updates!]")
-                    elif lvldarkweb == 1:
+                    elif lvldarkweb > 0:
                         print("Drugs")
                         print("Far-right Ideology")
                         print("Illegal Porn")
                         darksite = input("Please select a site: \n> ")
-                        if darksite == drugs:
+                        if any(darksite in s for s in drugs):
                             print("Welcome to the Grand Trunk Road!\nThe site where you can buy anything!")
-                        elif darksite == farright:
+                        elif any(darksite in s for s in farright):
                             print("You're on '/Politically Observant Losers/', the last bastion of free speech on the internet.")
-                            print("")
-                        elif darksite == porn:
+                            toppost = int(random.randrange(1, 5, 1))
+                            if toppost == 1:
+                                print("What are some small redpills to casually drop on the normies?")
+                            if toppost == 2:
+                                print("I can't wait to see the mass suicide of libtards. It's going to be beautiful.")
+                            if toppost == 3:
+                                print("Do vaccines cause autism?")
+                            if toppost == 4:
+                                print("What are some of your degenerate habits, how are you planning to stop them, or what have you stopped?")
+                            if toppost == 5:
+                                print("People always say that Women crash their cars because they are horrible drivers, yet studies show that Women are better drivers than Men")
+                        elif any(darksite in s for s in porn):
                             print("Chuckie's Cheese Pizza, delivered hot and fresh!")
             #post event remoting
             elif lvlremote == 1:
