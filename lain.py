@@ -276,7 +276,6 @@ if any(user in s for s in username):
                         darksite = input("Please select a site: \n> ")
                         if any(darksite in s for s in drugs):
                             print("Welcome to the Grand Trunk Road!\nThe site where you can buy anything!")
-                            input("Press Enter to return...")
                         elif any(darksite in s for s in farright):
                             print("You're on '/Politically Observant Losers/', the last bastion of free speech on the internet.")
                             toppost = int(random.randrange(1, 5, 1))
@@ -290,7 +289,6 @@ if any(user in s for s in username):
                                 print("Top Post: What are some of your degenerate habits, how are you planning to stop them, or what have you stopped?")
                             if toppost == 5:
                                 print("Top Post: People always say that Women crash their cars because they are horrible drivers, yet studies show that Women are better drivers than Men")
-                            input("Press Enter to return...")
                         elif any(darksite in s for s in porn):
                             print("Chuckie's Cheese Pizza, delivered hot and fresh!")
                             pedologin = input("Username:\n> ")
