@@ -1,10 +1,11 @@
 #!/usr/bin/env/ python
 # -*- coding: utf-8 -*-
 from os import system
-import random
+import random, progressbar, time
+from colorama import init, Fore, Style
 
 #welcome to lain
-
+init()
 #definitions - flags
 lvlmail = 0
 def lvlmailadd():
@@ -105,8 +106,10 @@ if any(user in s for s in username):
             searchtarget = input("Who or what would you like to look up? \n> ")
             if any(searchtarget in s for s in chisa):
                 print("Searching...")
-                print("四方田千砂: Please don't look for me.")
+                time.sleep(3)
+                print(Fore.RED + "四方田千砂: Please don't look for me.")
                 system('say -v Kathy Please dont look for me.')
+                print(Style.RESET_ALL)
                 input("Press Enter to continue...")
                 lvldatabasechisaadd()
             elif any(searchtarget in s for s in exit):
@@ -270,9 +273,14 @@ if any(user in s for s in username):
                     if lvldarkweb == 0:
                         print("[The 'Top Of Relay' network obfuscation project is under development by the Computer Science department of Tokyo U!\nBe sure to check back regularly for updates!]")
                     elif lvldarkweb > 0:
+                        print("Loading...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
                         print("Drugs")
                         print("Far-right Ideology")
                         print("Illegal Porn")
+                        print("\n")
                         darksite = input("Please select a site: \n> ")
                         if any(darksite in s for s in drugs):
                             print("Welcome to the Grand Trunk Road!\nThe site where you can buy anything!")
@@ -295,7 +303,10 @@ if any(user in s for s in username):
                             if pedologin == "zippydoodah":
                                 pedopassword = input("Password:\n> ")
                                 if pedopassword == "puddinpops":
-                                    print("מֹלֶךְ")
+                                    print(Fore.RED + "מֹלֶךְ")
+                                    print(Style.RESET_ALL)
+                                    input("There is no way to go back...")
+                                    exit()
                             input("Press Enter to return...")
                         else:
                             print("Site not found!")
@@ -346,3 +357,4 @@ if any(user in s for s in username):
         print("Login Failed")
 else:
     print("Login Failed")
+deinit()
