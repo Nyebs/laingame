@@ -1,11 +1,15 @@
 #!/usr/bin/env/ python
 # -*- coding: utf-8 -*-
+
 from os import system
 import random, progressbar, time
 from colorama import init, Fore, Style
 
 #welcome to lain
+
+#initializes colorama
 init()
+
 #definitions - flags
 lvlmail = 0
 def lvlmailadd():
