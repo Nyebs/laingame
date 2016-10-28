@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from os import system
-import random, progressbar, time, prettytable
+import random, progressbar, time, prettytable, getpass
 from colorama import init, Fore, Style
 
 #welcome to lain
@@ -47,7 +47,7 @@ loginpassword = ["rilakkuma","Rilakkuma"]
 #log in
 user = input("Username: \n> ")
 if any(user in s for s in username):
-    password = input("Password: \n> ")
+    password = getpass.getpass("Password:\n> ")
     if any(password in s for s in loginpassword):
 
 #definitions - functions
@@ -148,51 +148,60 @@ if any(user in s for s in username):
             host = "Navi"
             validtarget = ["173.194.204.138"]
             #function
-            terminalfunc = input("Lain@"+host+":> ")
+            terminalfunc = input("Lain@Navi:> ")
             if any(terminalfunc in s for s in nmap):
-                nmaptarget = input("nmap: Please select a target:\n> ")
-                if any(nmaptarget in s for s in validtarget):
-                    print("Scanning target...")
-                    bar = progressbar.ProgressBar()
-                    for i in bar(range(100)):
-                        time.sleep(0.02)
-                    print("Valid target found!\n ")
-                    x = prettytable.PrettyTable()
-                    x.add_column("Service",["","FTP","SSH","Telnet","SMTP","DNS","DHCP","HTTP","NTP","IMAP"])
-                    x.add_column("Port", ["",21, 22, 23, 25, 53, 68, 80, 123,143])
-                    x.add_column("Open", ["","No","No","Yes","No","No","No","No","No","No"])
-                    print(x.get_string(border=False, padding_width=5))
-                else:
-                    print("Scanning target...")
-                    bar = progressbar.ProgressBar()
-                    for i in bar(range(100)):
-                        time.sleep(0.02)
-                    print("No useful information found")
+                def nmapapp():
+                    nmaptarget = input("nmap: Please select a target:\n> ")
+                    if any(nmaptarget in s for s in validtarget):
+                        print("Scanning target...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
+                        print("Valid target found!\n ")
+                        x = prettytable.PrettyTable()
+                        x.add_column("Service",["","FTP","SSH","Telnet","SMTP","DNS","DHCP","HTTP","NTP","IMAP"])
+                        x.add_column("Port", ["",21, 22, 23, 25, 53, 68, 80, 123,143])
+                        x.add_column("Open", ["","No","No","Yes","No","No","No","No","No","No"])
+                        print(x.get_string(border=False, padding_width=5))
+                    else:
+                        print("Scanning target...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
+                        print("No useful information found")
             elif any(terminalfunc in s for s in jackthecracker):
-                jackthecrackertarget = input("JtC: Please select a target file:\n> ")
+                def jackthecrackerapp():
+                    jackthecrackertarget = input("JtC: Please select a target file:\n> ")
             if any(terminalfunc in s for s in ssh):
-                sshtarget = input("Please select a target:\n> ")
-                if any(sshtarget in s for s in validtarget):
-                    print("Connecting to target...")
-                    bar = progressbar.ProgressBar()
-                    for i in bar(range(100)):
-                        time.sleep(0.02)
-                    print("Connection established!\n ")
-                    host = str(validtarget)
-                    terminalapp()
+                def ssh():
+                    sshtarget = input("Please select a target:\n> ")
+                    if any(sshtarget in s for s in validtarget):
+                        print("Connecting to target...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
+                        print("Connection established!\n ")
+                        ls = ["ls","LS"]
+                        cd = ["cd","CD"]
+                        sshfunc = input("Lain@CoreBox:> ")
+                        if any(sshfunc in s for s in cd):
+                            directorytarget = input("Which directory?:\n> ")
+                            print("Lain@"+validtarget+"/"+directorytarget+"\n> ")
+                        if any(sshfunc in s for s in ls):
+                            print("")
             if any(terminalfunc in s for s in telnet):
-                telnettarget = input("Please select a target:\n> ")
-                if any(telnettarget in s for s in validtarget):
-                    print("Connecting to target...")
-                    bar = progressbar.ProgressBar()
-                    for i in bar(range(100)):
-                        time.sleep(0.02)
-                    print("Connection established!\n ")
-                    host = str(validtarget)
-                    terminalapp()
-            elif any(function in s for s in exit):
+                def telnet():
+                    telnettarget = input("Please select a target:\n> ")
+                    if any(telnettarget in s for s in validtarget):
+                        print("Connecting to target...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
+                        print("Connection established!\n ")
+                        telnetfunc = input("Lain@"+str(validtarget)+"\n> ")
+            elif any(terminalfunc in s for s in exit):
                 functionapp()
-            functionapp()
+            terminalapp()
 
         #remote
         def remoteapp():
