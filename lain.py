@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from os import system
-import random, progressbar, time
+import random, progressbar, time, prettytable
 from colorama import init, Fore, Style
 
 #welcome to lain
@@ -135,6 +135,63 @@ if any(user in s for s in username):
             else:
                 print("Target not found.")
                 databaseapp()
+            functionapp()
+
+        #terminal app
+        def terminalapp():
+            #definitions
+            nmap = ["nmap","NMAP"]
+            jackthecracker = ["JackTheCracker","jackthecracker"]
+            telnet = ["Telnet","telnet"]
+            ssh = ["ssh","SSH","Secure Shell","secureshell"]
+            exit = ["exit","Exit","Back","Home","home","homepage","return"]
+            host = "Navi"
+            validtarget = ["173.194.204.138"]
+            #function
+            terminalfunc = input("Lain@"+host+":> ")
+            if any(terminalfunc in s for s in nmap):
+                nmaptarget = input("nmap: Please select a target:\n> ")
+                if any(nmaptarget in s for s in validtarget):
+                    print("Scanning target...")
+                    bar = progressbar.ProgressBar()
+                    for i in bar(range(100)):
+                        time.sleep(0.02)
+                    print("Valid target found!\n ")
+                    x = prettytable.PrettyTable()
+                    x.add_column("Service",["","FTP","SSH","Telnet","SMTP","DNS","DHCP","HTTP","NTP","IMAP"])
+                    x.add_column("Port", ["",21, 22, 23, 25, 53, 68, 80, 123,143])
+                    x.add_column("Open", ["","No","No","Yes","No","No","No","No","No","No"])
+                    print(x.get_string(border=False, padding_width=5))
+                else:
+                    print("Scanning target...")
+                    bar = progressbar.ProgressBar()
+                    for i in bar(range(100)):
+                        time.sleep(0.02)
+                    print("No useful information found")
+            elif any(terminalfunc in s for s in jackthecracker):
+                jackthecrackertarget = input("JtC: Please select a target file:\n> ")
+            if any(terminalfunc in s for s in ssh):
+                sshtarget = input("Please select a target:\n> ")
+                if any(sshtarget in s for s in validtarget):
+                    print("Connecting to target...")
+                    bar = progressbar.ProgressBar()
+                    for i in bar(range(100)):
+                        time.sleep(0.02)
+                    print("Connection established!\n ")
+                    host = str(validtarget)
+                    terminalapp()
+            if any(terminalfunc in s for s in telnet):
+                telnettarget = input("Please select a target:\n> ")
+                if any(telnettarget in s for s in validtarget):
+                    print("Connecting to target...")
+                    bar = progressbar.ProgressBar()
+                    for i in bar(range(100)):
+                        time.sleep(0.02)
+                    print("Connection established!\n ")
+                    host = str(validtarget)
+                    terminalapp()
+            elif any(function in s for s in exit):
+                functionapp()
             functionapp()
 
         #remote
@@ -331,9 +388,10 @@ if any(user in s for s in username):
             mail = ["mail","Mail"]
             remote = ["remote","Remote"]
             database = ["database","Database"]
+            terminal = ["terminal","Terminal"]
             exit = ["Exit","exit","return","homepage","back","start","quit","Quit"]
             #function
-            function = input("Which would you like [Mail], [Database], [Remote], or [Exit]?: \n> ")
+            function = input("Which would you like [Mail], [Database], [Remote], [Terminal], or [Exit]?: \n> ")
             if any(function in s for s in mail):
                 mailapp()
             elif any(function in s for s in database):
@@ -342,6 +400,8 @@ if any(user in s for s in username):
                 remoteapp()
             elif any(function in s for s in exit):
                 system('exit')
+            elif any(function in s for s in terminal):
+                terminalapp()
             else:
                 print("Function not found.")
                 input("Press Enter to continue...")
