@@ -110,7 +110,9 @@ if any(user in s for s in username):
             searchtarget = input("Who or what would you like to look up? \n> ")
             if any(searchtarget in s for s in chisa):
                 print("Searching...")
-                time.sleep(3)
+                bar = progressbar.ProgressBar()
+                for i in bar(range(100)):
+                    time.sleep(0.02)
                 print(Fore.RED + "四方田千砂: Please don't look for me.")
                 system('say -v Kathy Please dont look for me.')
                 print(Style.RESET_ALL)
@@ -183,12 +185,24 @@ if any(user in s for s in username):
                         print("Connection established!\n ")
                         ls = ["ls","LS"]
                         cd = ["cd","CD"]
+                        documentsfolder = ["Documents","documents","docs","Docs"]
+                        downloadsfolder = ["Downloads","downloads","dl"]
+                        desktopfolder = ["Desktop","desktop"]
                         sshfunc = input("Lain@CoreBox:> ")
                         if any(sshfunc in s for s in cd):
                             directorytarget = input("Which directory?:\n> ")
-                            print("Lain@"+validtarget+"/"+directorytarget+"\n> ")
+                            if directorytarget == documentsfolder:
+                                cdappfunc = input("Lain@"+validtarget+"/"+directorytarget+"\n> ")
+                                if cdappfunc == ls:
+                                    print("")
+                            elif directorytarget == downloadsfolder:
+                                cdappfunc = input("Lain@"+validtarget+"/"+directorytarget+"\n> ")
+                                if cdappfunc == ls:
+                                    print("")
+                            elif directorytarget == desktopfolder:
+                                print("")
                         if any(sshfunc in s for s in ls):
-                            print("")
+                            print("Desktop\n","Documents\n","Downloads")
             if any(terminalfunc in s for s in telnet):
                 def telnet():
                     telnettarget = input("Please select a target:\n> ")
