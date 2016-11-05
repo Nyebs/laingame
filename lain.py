@@ -2,9 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from os import system
-import random, progressbar, time, prettytable, getpass
+import random, progressbar, time, prettytable, getpass, sys
 from colorama import init, Fore, Style
 
+#please have an up to date python
+if sys.version_info[0] != 3 or sys.version_info[1] < 5:
+	print("Lain.py requires Python version 3.5 or greater")
+	sys.exit(1)
 #welcome to lain
 
 #initializes colorama
@@ -60,9 +64,9 @@ if any(user in s for s in username):
                 print("---------------------")
                 print("Sender: Yomoda, Chisa")
                 print("Subject: Hello Lain")
-                print("Body: God is in here.")
+                print("Body: There was no reason for me to stay in the real world any longer. In the real world, it didnt matter if I was there or not. When I realized that, I was no longer afraid of losing my body. God is here. Come to the Wired as soon as you can.")
                 print("---------------------")
-                system('say -v Kathy God is in here.')
+                system("say -v Kathy There was no reason for me to stay in the real world any longer. In the real world, it didnt matter if I was there or not. When I realized that, I was no longer afraid of losing my body. God is here. Come to the Wired as soon as you can.")
                 lvlmailadd()
             elif lvldatabasechisa == 1 and lvlmail == 1:
                 print("Hello Lain!")
@@ -142,6 +146,7 @@ if any(user in s for s in username):
         #terminal app
         def terminalapp():
             #definitions
+            ping = ["ping","Ping"]
             nmap = ["nmap","NMAP"]
             jackthecracker = ["JackTheCracker","jackthecracker"]
             telnet = ["Telnet","telnet"]
@@ -149,6 +154,7 @@ if any(user in s for s in username):
             exit = ["exit","Exit","Back","Home","home","homepage","return"]
             host = "Navi"
             validtarget = ["173.194.204.138"]
+            validtargetdns = ["CyberiaChat","cyberiachat","cyberia","Cyberia"]
             #function
             terminalfunc = input("Lain@Navi:> ")
             if any(terminalfunc in s for s in nmap):
@@ -171,10 +177,11 @@ if any(user in s for s in username):
                         for i in bar(range(100)):
                             time.sleep(0.02)
                         print("No useful information found")
+                nmapapp()
             elif any(terminalfunc in s for s in jackthecracker):
                 def jackthecrackerapp():
                     jackthecrackertarget = input("JtC: Please select a target file:\n> ")
-            if any(terminalfunc in s for s in ssh):
+            elif any(terminalfunc in s for s in ssh):
                 def ssh():
                     sshtarget = input("Please select a target:\n> ")
                     if any(sshtarget in s for s in validtarget):
@@ -203,7 +210,8 @@ if any(user in s for s in username):
                                 print("")
                         if any(sshfunc in s for s in ls):
                             print("Desktop\n","Documents\n","Downloads")
-            if any(terminalfunc in s for s in telnet):
+                ssh()
+            elif any(terminalfunc in s for s in telnet):
                 def telnet():
                     telnettarget = input("Please select a target:\n> ")
                     if any(telnettarget in s for s in validtarget):
@@ -213,6 +221,58 @@ if any(user in s for s in username):
                             time.sleep(0.02)
                         print("Connection established!\n ")
                         telnetfunc = input("Lain@"+str(validtarget)+"\n> ")
+                    else:
+                        print("Connecting to target...")
+                        bar = progressbar.ProgressBar()
+                        for i in bar(range(100)):
+                            time.sleep(0.02)
+                        print("Connection failed!\n ")
+                telnet()
+            elif any(terminalfunc in s for s in ping):
+                def pingapp():
+                    pingtarget = input("ping: Please select a target:\n> ")
+                    if any(pingtarget in s for s in validtargetdns):
+                        print(str(validtargetdns)+"("+validtarget+")...")
+                        x = prettytable.PrettyTable()
+                        x.add_row(""["64 bytes from","173.194.204.138","icmp_seq=0","ttl=55","time=14.680 ms"])
+                        time.sleep(1)
+                        x.add_row(""["64 bytes from","173.194.204.138","icmp_seq=1","ttl=55","time=16.800 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=2","ttl=55","time=19.046 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=3","ttl=55","time=13.255 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=4","ttl=55","time=13.379 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=5","ttl=55","time=15.618 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=6","ttl=55","time=14.445 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=7","ttl=55","time=13.737 ms"])
+                        time.sleep(1)
+                        x.add_row(["64 bytes from","173.194.204.138","icmp_seq=8","ttl=55","time=12.838 ms"])
+                        print(x.get_string(border=False, padding_width=5))
+                    else:
+                        print(str(pingtarget)+"(X.X.X.X)...")
+                        x = prettytable.PrettyTable()
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        time.sleep(1)
+                        x.add_row(["Request timed out"])
+                        print(x.get_string(border=False, padding_width=5))
+                        print("Ping succeded!")
+                pingapp()
             elif any(terminalfunc in s for s in exit):
                 functionapp()
             terminalapp()
@@ -238,7 +298,7 @@ if any(user in s for s in username):
                     if join == "y" or "Y":
                         def cyberiachat():
                             print("\nForums:\n\nMusic\nCyber\nRumors\n")
-                            forum = input("Please select a forum or [exit]\n> ")
+                            forum = input("Please select a forum or [exit]:\n> ")
                             #definitions
                             music = ["Music","music","mus"]
                             cyber = ["Cyber","cyber","tech"]
